@@ -1,0 +1,149 @@
+<html>
+<head>
+    
+<h1> <uppercase>Determinant of a Matrix</uppercase></h1>
+
+<style>
+h1{
+Text-align: center;
+Color : red;
+}
+ body{
+     background-color: lightgrey ;
+ }
+div{
+    width: 400px;
+    }
+    label{
+        float: left;
+        width: 300px;
+    }
+    #clickMe{
+        width: 150px;
+        height: 30px;
+        color : blue;
+        background-color :thistle;
+    }
+    #clickMe1{
+        width: 150px;
+        height: 30px;
+        color: blue;
+        background-color :thistle;
+    }
+    #but1{
+        width: 150px;
+        height: 30px;
+        padding: right;
+        color : red;
+        background-color :thistle;
+    }
+    #t1{
+        
+        float: right;
+    }
+    a:link{
+        color: green;
+        background-color: transparent;
+        text-decoration: none ;
+    }
+    #tit{
+        color: coral;
+    }
+    #matr{
+        background-color:papayawhip ;
+       
+    }
+    #in{
+        background-color: papayawhip;
+    }
+    #matr1{
+        background-color :skyblue ;
+    }
+    #in1{
+        background-color:skyblue;
+    }
+</style>
+<body>
+   
+   
+ <p id ="p1"><strong> <center><marquee>"This page allows You to find the Determinant of a matrix. Determinant can be calculated only for Square matrix"</marquee> </center> </strong></p>
+ <p id="t1"> <strong> To know the exact definition :</strong>
+ <a  href ="https://en.wikipedia.org/wiki/Determinant"> CLICK HERE </a>
+ </p>
+ <p > <strong>To calculate the Determinant for size 3 *3 matrix </strong> </p>
+<div></div>
+
+<form >
+    <label for "in" >Enter size of matrix: </label>
+    <input type = "text" id = "in" placeholder="3" required> <strong>Enter the number 3</strong> <br><br>
+    <label for "matr" >Enter the values of matrix: </label>
+    <input maxlength="17" type = "text" id = "matr" required>  <strong>*Enter the values with a space*</strong><br><br>
+    <input  type ="button" id = "clickMe" value="Calculate">
+    <input type ="reset" id ="but1" value ="Reset" name ="reset" />
+</form>
+<p > <strong>To calculate the Determinant for size 2 *2 matrix </strong> </p>
+<form>
+    <label for "in1" >Enter size of matrix: </label>
+    <input type = "text" id = "in1" required  placeholder="2"><strong>Enter the number 2</strong> <br><br>
+    <label for "matr1" >Enter the values of matrix: </label>
+    <input maxlength="7" type = "text" id = "matr1" required>  <strong>*Enter the values with a space*</strong><br><br>
+    <input  type ="button" id = "clickMe1" value="Calculate">
+    <input type ="reset" id ="but1" value ="Reset" name ="reset" />
+</form>
+</body>
+</head>
+</html>
+
+<script type="text/javascript"> 
+    document.getElementById("clickMe").onclick = pushData;
+    function pushData(){
+    	var matSize = parseInt(document.getElementById("in").value);
+        var input = document.getElementById("matr").value;
+        var mat = input.split(" ");
+        var arr = new Array(matSize);
+        var h = 0;
+        for(i = 0; i < matSize; i++)
+        {
+        	arr[i] = new Array(matSize);
+        }
+        for(i = 0; i < matSize; i++)
+        {
+        	for(j = 0; j < matSize; j++)
+            {
+            	arr[i][j] = parseInt(mat[h++]);
+            }
+        }      	
+        var determinant = (arr[0][0] * (arr[1][1]*arr[2][2] - arr[1][2]*arr[2][1]) -
+                          arr[0][1] * (arr[1][0]*arr[2][2] - arr[1][2]*arr[2][0]) +
+                          arr[0][2] * (arr[1][0]*arr[2][1] - arr[1][1]*arr[2][0]));
+        document.write(determinant);
+        }
+</script>
+<br>
+<br>
+<script type="text/javascript"> 
+    document.getElementById("clickMe1").onclick = pushData1;
+    function pushData1(){
+    	var matSize1 = parseInt(document.getElementById("in1").value);
+        var input = document.getElementById("matr1").value;
+        var mat1 = input.split(" ");
+        var arr1 = new Array(matSize1);
+        var h1 = 0;
+        for(l = 0; l < matSize1; l++)
+        {
+        	arr1[l] = new Array(matSize1);
+        }
+        for(l = 0; l < matSize1; l++)
+        {
+        	for(m = 0; m < matSize1; m++)
+            {
+            	arr1[l][m] = parseInt(mat1[h1++]);
+            }
+        }      	
+        var determinant1 = ( (arr1[0][0] * arr1[1][1]) -
+                         ( arr1[0][1] * arr1[1][0]) );
+                          
+        document.write (determinant1);
+        }
+</script>
+
